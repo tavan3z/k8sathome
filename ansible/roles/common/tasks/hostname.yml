@@ -1,0 +1,4 @@
+- name: Set hostname based on inventory
+  become: yes
+  hostname:
+      name: "{{ inventory_hostname }}"

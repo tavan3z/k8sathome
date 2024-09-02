@@ -1,0 +1,7 @@
+---
+- include_tasks: k8s-dependencies.yml
+- include_tasks: k8s-plane.yml
+  tags: k8s-plane
+- include_tasks: k8s-worker.yml
+  tags: k8s-worker
+

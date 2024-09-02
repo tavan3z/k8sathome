@@ -1,0 +1,20 @@
+#- name: Add specified repository into sources list
+#  ansible.builtin.apt_repository:
+#    repo: deb http://deb.debian.org/debian bullseye main contrib non-free
+#    state: present
+#
+#- name: Add specified repository into sources list
+#  ansible.builtin.apt_repository:
+#    repo: deb-src http://deb.debian.org/debian bullseye main contrib non-free
+#    state: present
+#
+#- name: Remove CD ROM entries
+#  ansible.builtin.apt_repository:
+#    repo: deb cdrom:[Debian GNU/Linux 11.7.0 _Bullseye_ - Official amd64 DVD Binary-1 20230429-11:50]/ bullseye contrib main
+#    state: absent
+
+- name: Remove CD ROM entries
+  become: yes
+  ansible.builtin.apt_repository:
+    repo: deb cdrom:[Debian GNU/Linux 11.7.0 _Bullseye_ - Official amd64 DVD Binary-1 20230429-11:50]/ bullseye contrib main
+    state: absent

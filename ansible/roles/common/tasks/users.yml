@@ -1,0 +1,34 @@
+---
+- name: Add Users
+  become: yes
+  ansible.builtin.user:
+    name: "{{ item }}"
+    comment: Created by ansible common role
+    shell: /bin/bash
+    groups: sudo
+    createhome: yes
+    home: "/home/{{ item }}"
+    state: present
+    append: yes
+  loop:
+     - your_user
+     - ansible
+
+# TODO Move to jinja2 template and add user in loop to sudoers
+- name: Copy our version of sudoers that allows touchstream without sudo
+  become: yes
+  copy:
+    src: ../templates/sudoers
+    dest: /etc/sudoers
+    mode: "440"
+
+- name: create .ssh directory for each user
+  become: yes
+  ansible.builtin.file:
+    path: "/home/{{ item }}/.ssh"
+    state: directory
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: "0700"
+  loop:
+     - your_user

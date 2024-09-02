@@ -1,0 +1,12 @@
+
+
+---
+# file: roles/common/handlers/main.yml
+#- name: restart ntpd
+#  service:
+#    name: ntpd
+#    state: restarted
+- name: restart ossec
+  service:
+    name: ossec
+    state: restarted

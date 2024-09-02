@@ -1,0 +1,49 @@
+---
+# file: roles/common/tasks/main.yml
+- name: Install a list of base packages
+  become: yes
+  ansible.builtin.apt:
+        pkg:
+        - unzip
+        - python3-setuptools
+        - ntp
+        - curl
+        - git
+        - traceroute
+        - jq
+        - cron
+        - vim
+        - debconf
+        - dnsutils
+        - iftop
+        - slurm
+        - iptables
+        - libcurl4-openssl-dev
+        - libssl-dev
+        - build-essential
+        - python3-pip
+        - python3-venv
+        - zlib1g-dev
+        - libffi-dev
+        - resolvconf
+        - software-properties-common
+        - whois
+        - bzip2
+        - lzma
+        - liblzma-dev
+        - build-essential
+        - libssl-dev
+        - zlib1g-dev
+        - libbz2-dev
+        - libreadline-dev
+        - libsqlite3-dev
+        - curl
+        - libncursesw5-dev
+        - xz-utils
+        - tk-dev
+        - libxml2-dev
+        - libxmlsec1-dev
+        - redis-server
+        - libffi-dev
+        - liblzma-dev
+        - python-pexpect-doc
