@@ -14,8 +14,7 @@
      - your_user
      - ansible
 
-# TODO Move to jinja2 template and add user in loop to sudoers
-- name: Copy our version of sudoers that allows touchstream without sudo
+- name: Copy custom version of sudoers
   become: yes
   copy:
     src: ../templates/sudoers
